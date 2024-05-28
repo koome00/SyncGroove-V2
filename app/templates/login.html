@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="..\static\images\icons8-music-16.png" sizes="16x16">
+    <link rel="stylesheet" href="../static/css/logintwo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>SyncGroove</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="welcome">
+            <h1>Welcome to SyncGroove</h1>
+        </div>
+        <div class="cards">
+            <div class="card-one">
+                <div class="img-holder">
+                    <p>
+                        Save your favorite Discover Weekly playlists before they disappear each week! Keep your favorite
+                        tunes close at hand...
+                    </p>
+                </div>
+                <div class="text">
+                    <h2>SyncGroove</h2>
+                    <img src="../static/images/Spotify_Primary_Logo_RGB_White.png" alt="">
+                </div>
+            </div>
+            <div class="card-two">
+                <div class="img-holder">
+                    <p>
+                        You don't have to wait for spotify wrap to see your top artists...
+                    </p>
+                </div>
+                <div class="text">
+                    <h2>SyncGroove</h2>
+                    <img src="../static/images/Spotify_Primary_Logo_RGB_White.png" alt="">
+                </div>
+            </div>
+            <div class="login-card">
+                <div class="img-holder">
+                    <button class="btn" onclick="window.location.href='{{ url_for('login') }}'">
+                        <span class="circle">
+                            <span class="arrow"></span>
+                        </span>
+                        <span class="text">
+                            Login With Spotify
+                        </span>
+                    </button>
+                </div>
+                <div class="text">
+                    <h2>SyncGroove</h2>
+                    <img src="../static/images/Spotify_Primary_Logo_RGB_White.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
