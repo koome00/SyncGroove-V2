@@ -149,7 +149,6 @@ def currently_playing(auth_header):
     name = r['device']['name']
     song = r['item']['name']
     artist = r['item']['artists']['name']
-    
     return name, song, artist
 
 
@@ -187,8 +186,6 @@ def save_discover_weekly_playlist(auth_header, user_id):
     """
     # get current playlists
     playlists = current_user_playlists(auth_header)
-    
-    
     # iterate through the playlists items to find Discover Weekly id
     # and to see if Saved Discover Weekly is present to get its id
     discover_weekly_id = ""
@@ -202,7 +199,6 @@ def save_discover_weekly_playlist(auth_header, user_id):
             url = item["external_urls"]["spotify"]
             saved_discover_weekly_id = item['id']
     print(saved_discover_weekly_id)
-    
     if len(saved_discover_weekly_id) == 0:
         urls = f"https://api.spotify.com/v1/users/{user_id}/playlists"
         body = {'name': "SyncGroove"}
@@ -254,4 +250,21 @@ def get_users_top_artists(auth_header):
     response = requests.get(url, headers=auth_header)
     return response.json()
 
-
+def get_users_top_tracks(auth_header):
+    """
+    GET request to get the users top tracks in the last six months
+    """
+    url = "https://api.spotify.com/v1/me/top/tracks?limit=15"
+    response = requests.get(url, headers=auth_header)
+    res = response.json()
+    track_ids = []
+    for key in res['items'].keys():
+        if key == 'id':
+            track_ids.append
+    track_info = {}
+    for id in track_ids:
+        url = f"https://api.spotify.com/v1/tracks/{id}"
+        response = requests.get(url, headers=auth_header)
+        response.json()
+        track_info[response.name] = []
+    return track_ids
