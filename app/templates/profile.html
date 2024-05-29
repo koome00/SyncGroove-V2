@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="..\static\images\icons8-music-16.png" sizes="16x16">
+  <link rel="stylesheet" href="..\static\css\profiletwo.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>SyncGroove</title>
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="head">
+        <div class="user-img">
+          <img src="{{ p_pic}}" alt="profile picture">
+        </div>
+        <div class="user-details">
+          <p class="name">{{ name }}</p>
+          <p class="followers">followers • {{ followers }}</p>
+        </div>
+      </div>
+
+      <div class="save-playlist">
+        <a href="{{ url_for('featured_playlists') }}" class="save-button">Save Discover Weekly</a>
+      </div>
+      <div class="log-out">
+        <a href="{{ url_for('logout') }}" class="logout-button">Log Out</a>
+      </div>
+      <div class="spotify">
+        <h2 class="s-text">Powered by Spotify</h2>
+        <img src="../static/images/Spotify_Full_Logo_RGB_Green.png" alt="" class="s-logo">
+      </div>
+    </div>
+  </div>
+  <div class="column-one">
+    <div class="title">
+      <h3 class="display"> Your Playlists</h3>
+    </div>
+    <div class="playlists">
+      {% for items in playlists %}
+      <div class="item">
+        {% if items.images and items.images|length > 0 %}
+        <img src="{{ items.images[0].url }}" alt="Playlist Image" class="p-image">
+        {% else %}
+        <img src="..\static\images\spotify(1).png" alt="Placeholder Image" style="width: 120px;" class="p-image">
+        {% endif %}
+        <a href="{{items.external_urls.spotify}}" class="name">{{items.name}}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="column-two">
+    
+    <div class="top">
+      <div class="title">
+        <h3 class="display"> Your Top Artists</h3>
+      </div>
+      <div class="top">
+        {% for items in top %}
+        <div class="item">
+          {% if items.images and items.images|length > 0 %}
+          <img src="{{ items.images[0].url }}" alt="Artist Image" style="width: 120px;" class="p-image">
+          {% else %}
+          <img src="..\static\images\spotify (1).png" alt="Placeholder Image" style="width: 120px;" class="p-image">
+          {% endif %}
+          <a href="{{items.external_urls.spotify}}" class="name">{{items.name}}</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="footer-content">
+      <ul class="socials">
+        <li><a href="https://twitter.com/khvfv_" target="_blank"><i class="fa-brands fa-twitter"
+              style="color: #162938;"></i></a></li>
+        <li><a href="https://github.com/koome00" target="_blank"><i class="fa-brands fa-github-alt"
+              style="color: #162938;"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/collins-koome-728544261/" target="_blank"><i
+              class="fa-brands fa-linkedin-in" style="color: #162938;"></i></a></li>
+      </ul>
+      <div class="footer-bottom">
+        <p>copyright SyncGroove&copy; 2023 designed by <span>koome</span> </p>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

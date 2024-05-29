@@ -1,0 +1,315 @@
+@font-face {
+    font-family: circular;
+    src: url(circular.ttf);
+}
+
+body {
+    position: relative;
+    font-family: circular;
+    height: 100vh;
+    display: flex;
+    background: #00F260;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 0;
+}
+
+div.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 250px;
+    border-radius: 1.9rem;
+    background-color: #111;
+    margin-left: 10px;
+    height: 98%;
+    margin-top: 10px;
+}
+
+.container .sidebar {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.sidebar .head {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    color: #111;
+    background-color: #fff;
+    border-radius: 1.9rem;
+    margin-left: 4px;
+    margin-right: 4px;
+    position: absolute;
+    top: 50px;
+    left: 6.5px;
+}
+
+.head .user-img {
+    width: auto;
+    border-radius: 0.9rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.user-img img {
+    height: 230px;
+    border-radius: 1.9rem;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.head .user-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.head .user-details p.name {
+    font-family: "Pacifico", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.head .user-details p.followers {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+div.save-playlist {
+    position: absolute;
+    top: 400px;
+    left: 6.5px;
+    height: 50px;
+    background-color: #fff;
+    width: 230px;
+    border: 2px solid #000;
+    border-radius: 1.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.save-playlist a.save-button {
+    text-decoration: none;
+    font-weight: 500px;
+    color: black;
+    z-index: 3;
+    transition: .5s;
+}
+div.save-playlist:hover {
+    background-color: #1DB954;
+    z-index: 2;
+    transition: .5s cubic-bezier(1,0,.8,1);
+}
+
+div.save-playlist a.save-button:hover {
+    color: #fff;
+}
+
+div.log-out {
+    position: absolute;
+    bottom: 140px;
+    left: 6.5px;
+    height: 50px;
+    background-color: #fff;
+    width: 230px;
+    border: 2px solid #000;
+    border-radius: 1.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.log-out a.logout-button {
+    text-decoration: none;
+    font-weight: 600px;
+    font-size: 20px;
+    color: #970505;
+    transition: .5s;
+}
+div.log-out:hover {
+    background-color: #970505;
+    transition: .5s cubic-bezier(1,0,.8,1);
+}
+
+div.log-out a.logout-button:hover {
+    color: #fff;
+    transition: .5s
+}
+div.spotify {
+    position: absolute;
+    bottom: 20px;
+    height: 100px;
+    left: 6.5px;
+    width: 234px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.spotify .s-text {
+    color: #1DB954;
+    font-size: 10px;
+}
+
+div.spotify img.s-logo{
+    height: 50px;
+    width: 182.5px;
+}
+
+div.column-one{
+    width: 850px;
+    margin-left: 10px;
+    height: 98%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 1.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+}
+
+.column-one .title{
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    border: 1px #1DB954;
+    border-radius: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1DB954;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
+}
+
+.title h3.display {
+    font-weight: 600px;
+    font-size: 20px;
+}
+
+.playlists{
+    display: flex;
+    height: 850px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow: auto;
+    margin: 10px;
+}
+
+.playlists .item{
+    display: flex;
+    flex-direction: column;
+    height: 160px;
+    width: 150px;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    padding: 22px;
+    transition: all 0.4s;
+    cursor: pointer;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.playlists .item img{
+    height: 150px;
+}
+
+.playlists .item .name{
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    animation: marquee 10s linear infinite;
+}
+
+.playlists .item .name:hover {
+    color: #1DB954;
+    transition: .5s;
+}
+
+div.column-two{
+    width: 600px;
+    margin-left: 10px;
+    height: 98%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+}
+
+.column-one .title{
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    border: 1px #1DB954;
+    border-radius: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1DB954;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
+}
+
+.title h3.display {
+    font-weight: 600px;
+    font-size: 20px;
+}
+
+.playlists{
+    display: flex;
+    height: 850px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow: auto;
+    margin: 10px;
+}
+
+.playlists .item{
+    display: flex;
+    flex-direction: column;
+    height: 160px;
+    width: 150px;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    padding: 22px;
+    transition: all 0.4s;
+    cursor: pointer;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.playlists .item img{
+    height: 150px;
+}
+
+.playlists .item .name{
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    animation: marquee 10s linear infinite;
+}
+
+
+
