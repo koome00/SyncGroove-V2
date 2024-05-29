@@ -15,27 +15,24 @@ body {
     background: linear-gradient(to right, #0575E6, #00F260);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin: 0;
+    width: auto;
+    overflow-x: hidden;
 }
 
 div.container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
     width: 250px;
     border-radius: 1.9rem;
     background-color: #111;
-    margin-left: 10px;
-    height: 98%;
-    margin-top: 10px;
+    margin: 15px;
+    
 }
 
 .container .sidebar {
-    height: 100vh;
-    width: 100%;
+    height: 100%;
+    width: 250px;
     display: flex;
     flex-direction: column;
-    position: relative;
+    align-items: center;
 }
 
 .sidebar .head {
@@ -45,23 +42,21 @@ div.container {
     color: #111;
     background-color: #fff;
     border-radius: 1.9rem;
-    margin-left: 4px;
-    margin-right: 4px;
-    position: absolute;
-    top: 50px;
-    left: 6.5px;
+    height: 290px;
+    width: 90%;
+    margin-top: 12.5px;
+
 }
 
 .head .user-img {
     width: auto;
-    border-radius: 0.9rem;
     display: flex;
+    border-radius: 50%;
     justify-content: center;
-    margin-top: 5px;
 }
 .user-img img {
-    height: 230px;
-    border-radius: 1.9rem;
+    height: 170px;
+    border-radius: 50%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -83,12 +78,10 @@ div.container {
 }
 
 div.save-playlist {
-    position: absolute;
-    top: 400px;
-    left: 6.5px;
     height: 50px;
     background-color: #fff;
-    width: 230px;
+    margin-top: 70px;
+    width: 90%;
     border: 2px solid #000;
     border-radius: 1.9rem;
     display: flex;
@@ -99,7 +92,6 @@ div.save-playlist a.save-button {
     text-decoration: none;
     font-weight: 500px;
     color: black;
-    z-index: 3;
     transition: .5s;
 }
 div.save-playlist:hover {
@@ -113,12 +105,10 @@ div.save-playlist a.save-button:hover {
 }
 
 div.log-out {
-    position: absolute;
-    bottom: 140px;
-    left: 6.5px;
+    width: 90%;
+    margin-top: 400px;
     height: 50px;
     background-color: #fff;
-    width: 230px;
     border: 2px solid #000;
     border-radius: 1.9rem;
     display: flex;
@@ -143,11 +133,9 @@ div.log-out a.logout-button:hover {
     transition: .5s
 }
 div.spotify {
-    position: absolute;
-    bottom: 20px;
     height: 100px;
-    left: 6.5px;
-    width: 234px;
+    width: 90%;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,18 +153,17 @@ div.spotify img.s-logo{
 }
 
 div.column-one{
-    width: 850px;
-    margin-left: 10px;
-    height: 98%;
-    margin-top: 10px;
+    width: 800px;
+    margin: 15px;
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    border: 2px solid #000;
+    border: 2px solid #fff;
     border-radius: 1.9rem;
     display: flex;
     flex-direction: column;
-    align-items: center ;
+    align-items: center;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
 }
 
 .column-one .title{
@@ -192,6 +179,20 @@ div.column-one{
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
 }
 
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    background: hsl(120 75% 50% / 1);
+    margin-block: .5em;
+    border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb {
+    background: hsl(120 100% 10% / 1);
+    border-radius: 100vw;
+    border: .25em solid hsl(120 75% 50% / 1);
+}
+
 .title h3.display {
     font-weight: 600px;
     font-size: 20px;
@@ -199,7 +200,7 @@ div.column-one{
 
 .playlists{
     display: flex;
-    height: 850px;
+    height: 930px;
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: flex-start;
@@ -211,8 +212,8 @@ div.column-one{
 .playlists .item{
     display: flex;
     flex-direction: column;
-    height: 160px;
-    width: 150px;
+    height: 142px;
+    width: 135px;
     gap: 3px;
     align-items: center;
     justify-content: center;
@@ -227,6 +228,7 @@ div.column-one{
 
 .playlists .item img{
     height: 150px;
+    border-radius: 0.9rem;
 }
 
 .playlists .item .name{
@@ -242,20 +244,27 @@ div.column-one{
 }
 
 div.column-two{
-    width: 600px;
-    margin-left: 10px;
-    height: 98%;
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center ;
+    width: 760px;
 }
 
-.column-one .title{
-    width: 400px;
+.column-two .top{
+    width: 98%;
+    height: 500px;
+    margin: 10px;
+    border: 1px #1DB954;
+    border-radius: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+}
+
+.top .title {
+    width: 300px;
     height: 50px;
     margin: 10px;
     border: 1px #1DB954;
@@ -266,13 +275,13 @@ div.column-two{
     background-color: #1DB954;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
 }
-
-.title h3.display {
+.top .title h3.display {
     font-weight: 600px;
     font-size: 20px;
+    color: black;
 }
 
-.playlists{
+.column-two .top-artists{
     display: flex;
     height: 850px;
     flex-wrap: wrap;
@@ -280,36 +289,100 @@ div.column-two{
     justify-content: flex-start;
     gap: 10px;
     overflow: auto;
-    margin: 10px;
+    margin: 15px;
+    width: 98%;
 }
 
-.playlists .item{
+.top-artists .item{
     display: flex;
     flex-direction: column;
-    height: 160px;
-    width: 150px;
+    height: 140px;
+    width: 120px;
     gap: 3px;
     align-items: center;
     justify-content: center;
-    background-color: #111;
+    background-color: white;
     padding: 22px;
     transition: all 0.4s;
     cursor: pointer;
-    border-radius: 0.9rem;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.playlists .item img{
-    height: 150px;
+.top-artists .item img.p-image{
+    height: 140px;
 }
 
-.playlists .item .name{
+.top-artists .item .name{
     font-size: 15px;
     text-decoration: none;
-    color: #fff;
+    color: black;
     animation: marquee 10s linear infinite;
 }
 
+.top-artists .item .name:hover {
+    color: #1DB954;
+}
 
+.column-two .footer-content{
+    width: 98%;
+    height: 500px;
+    margin: 10px;
+    border: 1px #1DB954;
+    border-radius: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: black;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+}
 
+.footer-content .footer-text{
+    height: 120px;
+    width: auto;
+    margin-top: 120px;
+}
+.footer-text h1 {
+    color: #fff;
+    font-size: 100px;
+    margin: 0;
+}
+
+.footer-content .soc {
+    height: 50px;
+    width: 300px;
+}
+
+.footer-content ul.socials {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.footer-content .footer-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+}
+
+.footer-bottom p{
+    font-size: 10px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
