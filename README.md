@@ -1,7 +1,5 @@
 #  SyncGroove V2
 
-
-
 ## Table of Content
 * [Introduction](#introduction)
 * [Languages](#languages)
