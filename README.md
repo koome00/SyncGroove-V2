@@ -14,7 +14,9 @@
 SyncGroove is a web application that uses Spotify API to give the user cool features. Music is universal and many people can agree that they find it therapeutic. For me, I love listening music for virtually every occasion including when I am working. To serve this purpose, I find Spotify to be a good application especially due to how good its algorithm is when it comes to recommending users with new music. With over half a billion (600) average monthly listeners, it is clear many use the application to satisfy this need (Chartmasters.org). 
 One playlist in particular called Discover Weekly provides users with a curation of new music specific to them is a personal favorite. However, the playlist is updated every monday and even if the user has saved the playlists some of these songs disappear. For this reason, I decided to create a web application that allows the users to save the playlist to a playlist called SyncGroove. This playlist contains all the unique songs that have been featured in discover weekly as some songs are repeated. To work, the user must first save Discover Weekly. On top of this feature, the users can see their top artists in the last six months, a feature spotify gives the user once at the end of year in Spotify Wrap. Due to this need, SyncGroove was born
 
-Here is a [YouTube link](https://youtu.be/HIrxhJYBMRY) showing how the app works.
+
+
+Here is a [YouTube link](https://youtu.be/cKMZVlDJAh8) showing how the app works.
 Here is the yet to be integrated landing page [SyncGroove](https://koomemc.wixsite.com/syncgroove-1)
 [Blog Post](https://medium.com/@koomemc/syncgroove-2f0ed6db3e99)
 
@@ -22,7 +24,7 @@ Here is the yet to be integrated landing page [SyncGroove](https://koomemc.wixsi
 * Must have Spotify Premium account
 * Go to `https://developer.spotify.com/` to create web application
 * Substitute the values in `spotify.py` called `c_id`, `c_secret`, `r_uri`(eg `localhost:5000` depending on port provided) with your `client id`, `client secret`, and `redirect uri` respectively.
-* Clone this repository: `git clone "https://github.com/koome00/SyncGroove.git"`
+* Clone this repository: `git clone "https://github.com/koome00/SyncGroove-V2.git"`
 * Access app directory: `cd app`
 * Run `routes.py`
 
