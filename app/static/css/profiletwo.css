@@ -24,7 +24,8 @@ div.container {
     border-radius: 1.9rem;
     background-color: #111;
     margin: 15px;
-    
+    margin-left: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .container .sidebar {
@@ -155,18 +156,27 @@ div.spotify img.s-logo{
 div.column-one{
     width: 800px;
     margin: 15px;
-    display: flex;
     flex-direction: column;
-    background-color: #fff;
-    border: 2px solid #fff;
     border-radius: 1.9rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
 }
 
-.column-one .title{
+.column-one .top-one {
+    width: 98%;
+    height: 500px;
+    border: 1px #1DB954;
+    border-radius: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border: 2px solid black;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    margin: 10px;
+}
+.column-one .top-one .title{
     width: 400px;
     height: 50px;
     margin: 10px;
@@ -193,12 +203,12 @@ div.column-one{
     border: .25em solid hsl(120 75% 50% / 1);
 }
 
-.title h3.display {
+.top-one .title h3.display {
     font-weight: 600px;
     font-size: 20px;
 }
 
-.playlists{
+.top-one .playlists{
     display: flex;
     height: 930px;
     flex-wrap: wrap;
@@ -209,36 +219,112 @@ div.column-one{
     margin: 10px;
 }
 
-.playlists .item{
+.top-one .playlists .item{
     display: flex;
     flex-direction: column;
-    height: 142px;
+    height: 143px;
     width: 135px;
     gap: 3px;
     align-items: center;
     justify-content: center;
-    background-color: #111;
-    padding: 22px;
+    background-color: white;
+    padding: 20px;
     transition: all 0.4s;
     cursor: pointer;
-    border-radius: 0.9rem;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.playlists .item img{
-    height: 150px;
-    border-radius: 0.9rem;
+.top-one .playlists .item img{
+    height: 143px;
 }
 
-.playlists .item .name{
+.top-one .playlists .item .name{
     font-size: 15px;
     text-decoration: none;
-    color: #fff;
+    color: black;
     animation: marquee 10s linear infinite;
 }
 
-.playlists .item .name:hover {
+.top-one .playlists .item .name:hover {
+    color: #1DB954;
+    transition: .5s;
+}
+
+.top_tracks {
+    width: 98%;
+    height: 390px;
+    border: 1px #1DB954;
+    border-radius: 1.9rem;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    
+    background-color: black;
+    border: 2px solid black;
+    flex-direction: column;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.top_tracks .title {
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    border: 1px #1DB954;
+    border-radius: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1DB954;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
+}
+
+.top_tracks .title h3.display {
+    font-weight: 600px;
+    font-size: 20px;
+}
+
+.top_tracks .tracks {
+   display: flex;
+   flex-direction: column;
+   height: 350px;
+   width: 98%;
+   overflow: auto;
+   gap: 20px;
+   counter-reset: item-counter;
+   margin: 10px;
+}
+
+.tracks div.item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: white;
+    border-radius: 1.9rem;
+}
+
+.tracks .item::before {
+    counter-increment: item-counter;
+    content: counter(item-counter);
+    font-weight: bold; 
+    font-size: 35px;
+    margin-right: 5px;
+    margin-left: 9px;
+}
+
+div.tracks div.item img{
+    height: 80px;
+    width: 80px;
+}
+
+div.item a.name{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    animation: marquee 10s linear infinite;
+}
+
+div.item .name:hover {
     color: #1DB954;
     transition: .5s;
 }
@@ -247,6 +333,7 @@ div.column-two{
     display: flex;
     flex-direction: column;
     width: 760px;
+    margin-top: 15px;
 }
 
 .column-two .top{

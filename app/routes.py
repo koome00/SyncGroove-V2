@@ -80,12 +80,14 @@ def profile():
     session['p_pic'] = p_pic
     playlists = spotify.current_user_playlists(session['auth_header'])
     top = spotify.get_users_top_artists(session['auth_header'])
+    top_tracks = spotify.get_users_top_tracks(session['auth_header'])
     return render_template('profile.html',
                            name=name,
                            followers=followers,
                            p_pic=p_pic,
                            playlists=playlists["items"],
-                           top=top["items"])
+                           top=top["items"],
+                           top_tracks = top_tracks["items"])
 
 
 @app.route("/featured_playlists", strict_slashes=False)
@@ -97,8 +99,13 @@ def featured_playlists():
     """
     check_state()
     url = spotify.save_discover_weekly_playlist(session['auth_header'], session['user_id'])
-    return  redirect(url)    
+    return  redirect(url)
 
+@app.route("/top_tracks", strict_slashes=False)
+def top_artist():
+    res = spotify.get_users_top_tracks(session['auth_header'])
+    print(res["items"][1])
+    return jsonify(res)
 
 @app.route("/logout")
 def logout():

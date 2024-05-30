@@ -29,7 +29,7 @@
       </div>
 
       <div class="save-playlist">
-        <a href="{{ url_for('featured_playlists') }}" class="save-button">Save Discover Weekly</a>
+        <a href="{{ url_for('featured_playlists') }}" class="save-button" target="_blank">Save Discover Weekly</a>
       </div>
       <div class="log-out">
         <a href="{{ url_for('logout') }}" class="logout-button">Log Out</a>
@@ -41,24 +41,45 @@
     </div>
   </div>
   <div class="column-one">
-    <div class="title">
-      <h3 class="display"> Your Playlists</h3>
-    </div>
-    <div class="playlists">
-      {% for items in playlists %}
-      <div class="item">
-        {% if items.images and items.images|length > 0 %}
-        <img src="{{ items.images[0].url }}" alt="Playlist Image" class="p-image">
-        {% else %}
-        <img src="..\static\images\spotify(1).png" alt="Placeholder Image" style="width: 120px;" class="p-image">
-        {% endif %}
-        <a href="{{items.external_urls.spotify}}" class="name">{{items.name}}</a>
+    
+    <div class="top-one">
+      <div class="title">
+        <h3 class="display"> Your Playlists</h3>
       </div>
-      {% endfor %}
+      <div class="playlists">
+        {% for items in playlists %}
+        <div class="item">
+          {% if items.images and items.images|length > 0 %}
+          <img src="{{ items.images[0].url }}" alt="Playlist Image" class="p-image">
+          {% else %}
+          <img src="..\static\images\spotify(1).png" alt="Placeholder Image" style="width: 120px;" class="p-image">
+          {% endif %}
+          <a href="{{items.external_urls.spotify}}" class="name" target="_blank">{{items.name}}</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="top_tracks">
+      <div class="title">
+        <h3 class="display"> Your Top Tracks</h3>
+      </div>
+      <div class="tracks">
+        {% for item in top_tracks %}
+        <div class="item">
+          {% if item.album.images and item.album.images|length > 0 %}
+          <img src="{{ item.album.images[0].url }}" alt="Song Image" class="p-image">
+          {% else %}
+          <img src="..\static\images\spotify (1).png" alt="Placeholder Image" class="p-image">
+          {% endif %}
+          <a href="{{item.external_urls.spotify}}" class="name" target="_blank">{{item.name}}</a>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
   <div class="column-two">
-    
+
     <div class="top">
       <div class="title">
         <h3 class="display"> Your Top Artists</h3>
@@ -76,16 +97,19 @@
         {% endfor %}
       </div>
     </div>
-    
+
     <div class="footer-content">
       <div class="footer-text">
         <h1>SyncGroove</h1>
       </div>
       <div class="soc">
         <ul class="socials">
-          <li><a href="https://twitter.com/khvfv_" target="_blank"><i class="fa-brands fa-x-twitter fa-2xl" style="color: #ffffff;"></i></a></li>
-          <li><a href="https://github.com/koome00" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #ffffff;"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/collins-koome-728544261/" target="_blank"><i class="fa-brands fa-linkedin-in fa-2xl" style="color: #ffffff;"></i></a></li>
+          <li><a href="https://twitter.com/khvfv_" target="_blank"><i class="fa-brands fa-x-twitter fa-2xl"
+                style="color: #ffffff;"></i></a></li>
+          <li><a href="https://github.com/koome00" target="_blank"><i class="fa-brands fa-github fa-2xl"
+                style="color: #ffffff;"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/collins-koome-728544261/" target="_blank"><i
+                class="fa-brands fa-linkedin-in fa-2xl" style="color: #ffffff;"></i></a></li>
         </ul>
       </div>
       <div class="footer-bottom">

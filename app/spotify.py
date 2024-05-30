@@ -256,15 +256,5 @@ def get_users_top_tracks(auth_header):
     """
     url = "https://api.spotify.com/v1/me/top/tracks?limit=15"
     response = requests.get(url, headers=auth_header)
-    res = response.json()
-    track_ids = []
-    for key in res['items'].keys():
-        if key == 'id':
-            track_ids.append
-    track_info = {}
-    for id in track_ids:
-        url = f"https://api.spotify.com/v1/tracks/{id}"
-        response = requests.get(url, headers=auth_header)
-        response.json()
-        track_info[response.name] = []
-    return track_ids
+    res = response.json()   
+    return res
