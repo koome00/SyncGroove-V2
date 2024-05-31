@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import requests
 import base64
 import time
+from db import DB
 
 
 # Allow loading environment variables from .env file to get
@@ -11,6 +12,7 @@ load_dotenv()
 c_id = os.getenv('CLIENT_ID')
 c_secret = os.getenv("CLIENT_SECRET")
 r_uri = 'http://localhost:5000/home/'
+db = DB()
 
 
 def user_authorization():
@@ -126,7 +128,8 @@ def current_user_profile(auth_header):
     followers = r['followers']['total']
     p_pic = r['images'][0]['url']
     user_id = r['id']
-    return name, followers, p_pic, user_id
+    email = r["email"]
+    return name, followers, p_pic, user_id, email
 
 
 def current_user_playlists(auth_header):
@@ -191,6 +194,12 @@ def save_discover_weekly_playlist(auth_header, user_id):
     discover_weekly_id = ""
     saved_discover_weekly_id = ""
     url = ""
+    uris = {}
+    user_details = current_user_profile(auth_header)
+    user_name = user_details[0]
+    p_pic = user_details[2]
+    email = user_details[4]
+    user = db.add_user(email, user_name, p_pic)
     for item in playlists['items']:
         if item['name'] == "Discover Weekly":
             discover_weekly_id = item['id']
@@ -198,7 +207,24 @@ def save_discover_weekly_playlist(auth_header, user_id):
         if item['name'] == "SyncGroove":
             url = item["external_urls"]["spotify"]
             saved_discover_weekly_id = item['id']
-    print(saved_discover_weekly_id)
+            if len(saved_discover_weekly_id) == 0:
+                db.remove_all_songs_from_user(user)
+
+    r = get_playlist_items(auth_header, discover_weekly_id)
+    songs_to_add = []
+    for item in r['items']:
+        for key in item.keys():
+            if key == 'track':
+                songs_to_add.append(item[key]["uri"])
+                song_dict = {"song_name": item[key]["name"],
+                             "image_url": item[key]["album"]["images"][0]["url"],
+                             "link": item[key]["external_urls"]["spotify"],
+                             "song_uri": item[key]["uri"]}
+                song = db.add_song(user, **song_dict)
+
+
+    song_uris = db.get_user_song_uris(user)
+
     if len(saved_discover_weekly_id) == 0:
         urls = f"https://api.spotify.com/v1/users/{user_id}/playlists"
         body = {'name': "SyncGroove"}
@@ -208,37 +234,35 @@ def save_discover_weekly_playlist(auth_header, user_id):
         print(res['id'])
         saved_discover_weekly_id = res['id']
         url = res["external_urls"]["spotify"]
-        
-    print(saved_discover_weekly_id)
-    # discover weekly tracks uri are saved into a list
-    r = get_playlist_items(auth_header, discover_weekly_id)
-    songs_to_add = []
-    for item in r['items']:
-        for key in item.keys():
-            if key == 'track':
-                songs_to_add.append(item[key]["uri"])
-            
-    # check for duplicate songs 
-    r_2 = get_playlist_items(auth_header, saved_discover_weekly_id)
-    print(r_2)
-    songs_added = []
-    for item in r_2['items']:
-        for key in item.keys():
-            if key == 'track':
-                songs_added.append(item[key]["uri"])
+        uris["uris"] = songs_to_add
+        update_playlist_items(auth_header, saved_discover_weekly_id, uris)
+        return url
+
     unique = []
 
-    # removes duplicate songs
+    # check for duplicate songs 
     for song in songs_to_add:
-        if song not in songs_added:
+        if song not in song_uris:
             unique.append(song)
-    uris = {}
     uris["uris"] = unique
-    
     # Saved discover weekly is updated with the songs
     update_playlist_items(auth_header, saved_discover_weekly_id, uris)
 
     r_3 = get_playlist_items(auth_header, saved_discover_weekly_id)
+    print(len(r_3["items"]))
+    print(len(song_uris))
+    if len(r_3["items"]) == 0:
+        update_playlist_items(auth_header, saved_discover_weekly_id, uris)
+        print("w")
+        return url
+    if len(r_3["items"]) < len(song_uris):
+        current_songs = [item["track"]["uri"] for item in r_3["items"] if "track" in item]
+        set1 = set(current_songs)
+        set2 = set(song_uris)
+        unique_items = set1.symmetric_difference(set2)
+        unique_items = list(unique_items)
+        update_playlist_items(auth_header, saved_discover_weekly_id, {"uris": unique_items})
+        return  url
     return  url
 
 

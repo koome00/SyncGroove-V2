@@ -73,7 +73,7 @@ def profile():
     route to user's profile page
     """
     check_state()
-    name, followers, p_pic, user_id = spotify.current_user_profile(session['auth_header'])
+    name, followers, p_pic, user_id, email = spotify.current_user_profile(session['auth_header'])
     session['user_id'] = user_id
     session['name'] = name
     session['followers'] = followers
