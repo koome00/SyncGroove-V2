@@ -44,17 +44,17 @@
     
     <div class="top-one">
       <div class="title">
-        <h3 class="display"> Your Playlists</h3>
+        <h3 class="display"> Syncgroove Playlist Items</h3>
       </div>
       <div class="playlists">
-        {% for items in playlists %}
+        {% for items in playlist %}
         <div class="item">
-          {% if items.images and items.images|length > 0 %}
-          <img src="{{ items.images[0].url }}" alt="Playlist Image" class="p-image">
+          {% if items.track.album.images and items.track.album.images|length > 0 %}
+          <img src="{{ items.track.album.images[0].url }}" alt="Playlist Image" class="p-image">
           {% else %}
           <img src="..\static\images\spotify(1).png" alt="Placeholder Image" style="width: 120px;" class="p-image">
           {% endif %}
-          <a href="{{items.external_urls.spotify}}" class="name" target="_blank">{{items.name}}</a>
+          <a href="{{items.track.external_urls.spotify}}" class="name" target="_blank">{{items.track.artists[0].name}} - {{items.track.name}}</a>
         </div>
         {% endfor %}
       </div>
@@ -72,7 +72,7 @@
           {% else %}
           <img src="..\static\images\spotify (1).png" alt="Placeholder Image" class="p-image">
           {% endif %}
-          <a href="{{item.external_urls.spotify}}" class="name" target="_blank">{{item.name}}</a>
+          <a href="{{item.external_urls.spotify}}" class="name" target="_blank">{{item.artists[0].name}} - {{item.name}}</a>
         </div>
         {% endfor %}
       </div>
@@ -113,7 +113,7 @@
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>copyright SyncGroove&copy; 204 designed by <span>koome</span> </p>
+        <p>copyright SyncGroove&copy; 2024 designed by <span>koome</span> </p>
       </div>
     </div>
 

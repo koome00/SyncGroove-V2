@@ -239,7 +239,6 @@ def save_discover_weekly_playlist(auth_header, user_id):
         return url
 
     unique = []
-
     # check for duplicate songs 
     for song in songs_to_add:
         if song not in song_uris:
@@ -263,7 +262,8 @@ def save_discover_weekly_playlist(auth_header, user_id):
         unique_items = list(unique_items)
         update_playlist_items(auth_header, saved_discover_weekly_id, {"uris": unique_items})
         return  url
-    return  url
+    print(r_3["items"][0]["track"]["external_urls"])
+    return  url, r_3
 
 
 def get_users_top_artists(auth_header):

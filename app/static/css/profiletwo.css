@@ -55,6 +55,7 @@ div.container {
     border-radius: 50%;
     justify-content: center;
 }
+
 .user-img img {
     height: 170px;
     border-radius: 50%;
@@ -89,16 +90,18 @@ div.save-playlist {
     justify-content: center;
     align-items: center;
 }
+
 div.save-playlist a.save-button {
     text-decoration: none;
     font-weight: 500px;
     color: black;
     transition: .5s;
 }
+
 div.save-playlist:hover {
     background-color: #1DB954;
     z-index: 2;
-    transition: .5s cubic-bezier(1,0,.8,1);
+    transition: .5s cubic-bezier(1, 0, .8, 1);
 }
 
 div.save-playlist a.save-button:hover {
@@ -124,15 +127,17 @@ div.log-out a.logout-button {
     color: #970505;
     transition: .5s;
 }
+
 div.log-out:hover {
     background-color: #970505;
-    transition: .5s cubic-bezier(1,0,.8,1);
+    transition: .5s cubic-bezier(1, 0, .8, 1);
 }
 
 div.log-out a.logout-button:hover {
     color: #fff;
     transition: .5s
 }
+
 div.spotify {
     height: 100px;
     width: 90%;
@@ -148,12 +153,12 @@ div.spotify .s-text {
     font-size: 10px;
 }
 
-div.spotify img.s-logo{
+div.spotify img.s-logo {
     height: 50px;
     width: 182.5px;
 }
 
-div.column-one{
+div.column-one {
     width: 800px;
     margin: 15px;
     flex-direction: column;
@@ -176,7 +181,8 @@ div.column-one{
     flex-direction: column;
     margin: 10px;
 }
-.column-one .top-one .title{
+
+.column-one .top-one .title {
     width: 400px;
     height: 50px;
     margin: 10px;
@@ -192,11 +198,13 @@ div.column-one{
 ::-webkit-scrollbar {
     width: 20px;
 }
+
 ::-webkit-scrollbar-track {
     background: hsl(120 75% 50% / 1);
     margin-block: .5em;
     border-radius: 100vw;
 }
+
 ::-webkit-scrollbar-thumb {
     background: hsl(120 100% 10% / 1);
     border-radius: 100vw;
@@ -208,38 +216,32 @@ div.column-one{
     font-size: 20px;
 }
 
-.top-one .playlists{
+.top-one .playlists {
     display: flex;
-    height: 930px;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    gap: 10px;
+    flex-direction: column;
+    height: 350px;
+    width: 98%;
     overflow: auto;
+    gap: 10px;
     margin: 10px;
 }
 
-.top-one .playlists .item{
+.top-one .playlists .item {
     display: flex;
-    flex-direction: column;
-    height: 143px;
-    width: 135px;
-    gap: 3px;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
     background-color: white;
-    padding: 20px;
-    transition: all 0.4s;
-    cursor: pointer;
-    overflow: hidden;
-    white-space: nowrap;
+    border-radius: 0 1.9rem 1.9rem 0;
+    width: 98%;
 }
 
-.top-one .playlists .item img{
-    height: 143px;
+
+.top-one .playlists .item img {
+    height: 80px;
+    width: 80px;;
 }
 
-.top-one .playlists .item .name{
+.top-one .playlists .item .name {
     font-size: 15px;
     text-decoration: none;
     color: black;
@@ -259,7 +261,7 @@ div.column-one{
     margin: 10px;
     display: flex;
     align-items: center;
-    
+
     background-color: black;
     border: 2px solid black;
     flex-direction: column;
@@ -285,39 +287,40 @@ div.column-one{
 }
 
 .top_tracks .tracks {
-   display: flex;
-   flex-direction: column;
-   height: 350px;
-   width: 98%;
-   overflow: auto;
-   gap: 20px;
-   counter-reset: item-counter;
-   margin: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 98%;
+    overflow: auto;
+    gap: 10px;
+    counter-reset: item-counter;
+    margin: 10px;
 }
 
-.tracks div.item{
+.tracks div.item {
     display: flex;
     gap: 10px;
     align-items: center;
     background-color: white;
-    border-radius: 1.9rem;
+    border-radius: 0 1.9rem 1.9rem 0;
+    width: 98%;
 }
 
 .tracks .item::before {
     counter-increment: item-counter;
     content: counter(item-counter);
-    font-weight: bold; 
+    font-weight: bold;
     font-size: 35px;
     margin-right: 5px;
     margin-left: 9px;
 }
 
-div.tracks div.item img{
+div.tracks div.item img {
     height: 80px;
     width: 80px;
 }
 
-div.item a.name{
+div.item a.name {
     font-size: 15px;
     text-decoration: none;
     color: black;
@@ -329,14 +332,14 @@ div.item .name:hover {
     transition: .5s;
 }
 
-div.column-two{
+div.column-two {
     display: flex;
     flex-direction: column;
     width: 760px;
     margin-top: 15px;
 }
 
-.column-two .top{
+.column-two .top {
     width: 98%;
     height: 500px;
     margin: 10px;
@@ -362,13 +365,14 @@ div.column-two{
     background-color: #1DB954;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
 }
+
 .top .title h3.display {
     font-weight: 600px;
     font-size: 20px;
     color: black;
 }
 
-.column-two .top-artists{
+.column-two .top-artists {
     display: flex;
     height: 850px;
     flex-wrap: wrap;
@@ -378,9 +382,10 @@ div.column-two{
     overflow: auto;
     margin: 15px;
     width: 98%;
+    counter-reset: item-counter;
 }
 
-.top-artists .item{
+.top-artists .item {
     display: flex;
     flex-direction: column;
     height: 140px;
@@ -396,22 +401,31 @@ div.column-two{
     white-space: nowrap;
 }
 
-.top-artists .item img.p-image{
+.top-artists .item img.p-image {
     height: 140px;
 }
 
-.top-artists .item .name{
+.top-artists .item .name {
     font-size: 15px;
     text-decoration: none;
     color: black;
     animation: marquee 10s linear infinite;
 }
 
+.top-artists .item .name::before {
+    counter-increment: item-counter;
+    content: counter(item-counter);
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 5px;
+    margin-left: 9px;
+}
+
 .top-artists .item .name:hover {
     color: #1DB954;
 }
 
-.column-two .footer-content{
+.column-two .footer-content {
     width: 98%;
     height: 500px;
     margin: 10px;
@@ -427,11 +441,12 @@ div.column-two{
     gap: 10px;
 }
 
-.footer-content .footer-text{
+.footer-content .footer-text {
     height: 120px;
     width: auto;
     margin-top: 120px;
 }
+
 .footer-text h1 {
     color: #fff;
     font-size: 100px;
@@ -461,14 +476,14 @@ div.column-two{
     font-size: 20px;
 }
 
-.footer-bottom p{
+.footer-bottom p {
     font-size: 10px;
     word-spacing: 2px;
     text-transform: capitalize;
     color: #fff;
 }
 
-.footer-bottom span{
+.footer-bottom span {
     text-transform: uppercase;
     opacity: .4;
     font-weight: 200;
