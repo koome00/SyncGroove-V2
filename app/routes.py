@@ -100,8 +100,9 @@ def featured_playlists():
     This link has been extracted from the response to get that playlist
     """
     check_state()
-    url = spotify.save_discover_weekly_playlist(session['auth_header'], session['user_id'])
-    return  redirect(url)
+    data = spotify.save_discover_weekly_playlist(session['auth_header'], session['user_id'])
+    print(data[0])
+    return  redirect(data[0])
 
 
 @app.route("/top_tracks", strict_slashes=False)
