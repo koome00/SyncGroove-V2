@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: circular;
     src: url(circular.ttf);
@@ -62,7 +61,7 @@ div.cards {
     border-radius: 0.9rem;
 }
 
-.card-one:hover{
+.card-one:hover {
     background-color: #222;
 }
 
@@ -104,12 +103,13 @@ div.cards {
     align-items: center;
 }
 
-.card-one .text h2{
+.card-one .text h2 {
     line-height: 1;
     margin-top: 2rem;
     font-size: 45px;
 }
-.card-one .text img{
+
+.card-one .text img {
     height: 80px;
 }
 
@@ -125,7 +125,7 @@ div.cards {
     border-radius: 0.9rem;
 }
 
-.card-two:hover{
+.card-two:hover {
     background-color: #222;
 }
 
@@ -167,12 +167,13 @@ div.cards {
     align-items: center;
 }
 
-.card-two .text h2{
+.card-two .text h2 {
     line-height: 1;
     margin-top: 2rem;
     font-size: 45px;
 }
-.card-two .text img{
+
+.card-two .text img {
     height: 80px;
 }
 
@@ -198,15 +199,17 @@ div.cards {
     align-items: center;
 }
 
-.login-card .text h2{
+.login-card .text h2 {
     line-height: 1;
     color: #fff;
     margin-top: 2rem;
     font-size: 45px;
 }
-.login-card .text img{
+
+.login-card .text img {
     height: 80px;
 }
+
 .login-card .img-holder {
     height: 300px;
     width: auto;
@@ -242,7 +245,7 @@ div.cards {
     left: 0;
     top: -2px;
     z-index: 2;
-    transition: .5s cubic-bezier(1,0,.8,1);
+    transition: .5s cubic-bezier(1, 0, .8, 1);
 }
 
 .btn:hover .circle {
@@ -299,6 +302,6 @@ span.text {
     transition: .5s;
 }
 
-.btn:hover span.text{
+.btn:hover span.text {
     color: #fff;
 }

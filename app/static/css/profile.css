@@ -238,7 +238,8 @@ div.column-one {
 
 .top-one .playlists .item img {
     height: 80px;
-    width: 80px;;
+    width: 80px;
+    ;
 }
 
 .top-one .playlists .item .name {

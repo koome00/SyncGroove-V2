@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="..\static\images\icons8-music-16.png" sizes="16x16">
-  <link rel="stylesheet" href="..\static\css\profiletwo.css">
+  <link rel="stylesheet" href="..\static\css\profile.css">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -41,7 +41,7 @@
     </div>
   </div>
   <div class="column-one">
-    
+
     <div class="top-one">
       <div class="title">
         <h3 class="display"> Syncgroove Playlist Items</h3>
@@ -54,12 +54,13 @@
           {% else %}
           <img src="..\static\images\spotify(1).png" alt="Placeholder Image" style="width: 120px;" class="p-image">
           {% endif %}
-          <a href="{{items.track.external_urls.spotify}}" class="name" target="_blank">{{items.track.artists[0].name}} - {{items.track.name}}</a>
+          <a href="{{items.track.external_urls.spotify}}" class="name" target="_blank">{{items.track.artists[0].name}} -
+            {{items.track.name}}</a>
         </div>
         {% endfor %}
       </div>
     </div>
-    
+
     <div class="top_tracks">
       <div class="title">
         <h3 class="display"> Your Top Tracks</h3>
@@ -72,7 +73,8 @@
           {% else %}
           <img src="..\static\images\spotify (1).png" alt="Placeholder Image" class="p-image">
           {% endif %}
-          <a href="{{item.external_urls.spotify}}" class="name" target="_blank">{{item.artists[0].name}} - {{item.name}}</a>
+          <a href="{{item.external_urls.spotify}}" class="name" target="_blank">{{item.artists[0].name}} -
+            {{item.name}}</a>
         </div>
         {% endfor %}
       </div>
