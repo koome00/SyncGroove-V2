@@ -56,7 +56,7 @@ class DB:
         user.songs.append(song)
         self._session.commit()
 
-    def find_item(self, model, **kwargs) -> User:
+    def find_item(self, model, **kwargs):
         """
         find user given attributes
         """
@@ -91,3 +91,10 @@ class DB:
     def remove_all_songs_from_user(self, user):
         user.songs.clear()
         self._session.commit()
+    
+    def remove_one_song(self, user, song_uri):
+        song = self._session.query(Song).filter_by(song_uri=song_uri).one()
+        if song in user.songs:
+            user.songs.remove(song)
+            self._session.commit()
+

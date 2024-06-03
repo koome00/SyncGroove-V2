@@ -253,15 +253,16 @@ def save_discover_weekly_playlist(auth_header, user_id):
     if len(r_3["items"]) == 0:
         update_playlist_items(auth_header, saved_discover_weekly_id, uris)
         print("w")
-        return url
+        return url, r_3
     if len(r_3["items"]) < len(song_uris):
         current_songs = [item["track"]["uri"] for item in r_3["items"] if "track" in item]
         set1 = set(current_songs)
         set2 = set(song_uris)
         unique_items = set1.symmetric_difference(set2)
         unique_items = list(unique_items)
-        update_playlist_items(auth_header, saved_discover_weekly_id, {"uris": unique_items})
-        return  url
+        for unique_item in unique_items:
+            db.remove_all_songs_from_user(user, unique_items)
+        return  url,  r_3
     print(r_3["items"][0]["track"]["external_urls"])
     return  url, r_3
 
